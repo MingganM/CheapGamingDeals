@@ -1,0 +1,103 @@
+.deals, .Search{
+    background-color: $darkBlue;
+    padding: 1.5rem;
+    margin: 5rem 1rem;
+    border-radius: 0.2rem;
+
+    &__settings{
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        
+        @media screen and (min-width: 56.25em){
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    &__curPage{
+    }
+    &__buttons{
+        margin: 1rem 0;
+        
+        button{
+            font-weight: 700;
+            color: $yellow;
+            padding: 0.4rem 0.8rem;
+            margin-right: 0.5rem;
+            background-color: transparent;
+            border: 2px solid $yellow;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+
+            &:hover{
+                background-color: $yellow;
+                color: $black;
+            }
+        }
+    }
+
+    .deal, .deal__headings{
+        display: flex;
+        flex-direction: column;
+        color: $white;
+        margin: 2rem auto;
+        
+        @media screen and(min-width: 56.25em){
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.8rem 0;
+        }
+
+        &__link{
+            color: $blue;
+            text-decoration: none;
+            &:hover{
+                text-shadow: 0 0 10px $blue;
+            }
+        }
+        &__info{
+            display: flex;
+            align-items: center;
+        }
+        &__info > span{
+            display: inline-block;
+            margin: 1rem 1rem 1rem 0;
+
+            @media screen and(min-width: 56.25em){
+                margin: 0 1.5rem;
+            }
+        }
+        &__salePrice{
+            color: $yellow;
+        }
+        &__normalPrice{
+            text-decoration: line-through;
+        }
+        &__store{
+            width: 2.5rem;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+    .deal__headings{
+        margin: 0.5rem 0 2rem 0;
+
+        &--info > span{
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 1rem 1rem 1rem 0;
+
+            @media screen and(min-width: 56.25em){
+                margin: 0 0.5rem;
+            }
+        }
+    }
+    .hidden{
+        display: none;
+    }
+}

@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux'; 
+// FILES:
+import Home from './components/Pages/Home';
+import Search from './components/Pages/Search';
+import Nav from './components/Nav';
+import { fetchWithAxios } from './helperFunctions';
+import { payloadDispatcher } from './redux/actionCreator';
 
-function App() {
+function App(props) {
+  const { stores, dispatch } = props;
+  
+  function mapStoresToState(){
+    const endpoint = 'https://www.cheapshark.com/api/1.0/stores';
+
+    fetchWithAxios(endpoint, dispatch, payloadDispatcher("SET_STORES"))
+  }
+
+  useEffect(mapStoresToState, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/Search" component={Search}/>
+      </Switch>
     </div>
   );
 }
+function mapStateToProps(state, ownProps){
+  const { stores } = state;
+  return {
+    ...ownProps,
+    stores
+  }
+}
 
-export default App;
+function mapDispatchToProps(dispatch){
+  return {
+    dispatch
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

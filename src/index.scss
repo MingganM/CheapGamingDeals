@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$black: rgb(29, 29, 29);
+$darkBlue: rgb(24, 36, 48);
+$blue: rgb(0, 225, 255);
+$yellow: rgb(250, 193, 6);
+$white: rgb(235, 235, 235);
+
+html{
+    @media screen and (min-width: 100em){
+        font-size: 120%;
+    }
+}
+body{
+    background: $black;
+    font-family: 'Fraunces', serif;
+
+    @media screen and (min-width: 123.73em){
+        max-width: 1980px;
+        margin: auto;
+    }
+}
+.loading{
+    width: 150px;
+    margin: 2rem auto;
+    img{
+        width: 100%;
+    }
+}
+
+@import "./styles/nav.scss";
+@import "./styles/banner.scss";
+@import "./styles/deals.scss";
+@import "./styles/Searchbar.scss";
